@@ -8,9 +8,14 @@ import Navbar from './components/Navbar'
 import LoginForm from './components/LoginForm'
 import SignupForm from './components/SignupForm'
 
+import { fetchAnimals, fetchAnimal } from './actions/animalActions'
+import { fetchShelters, fetchShelter } from './actions/shelterActions'
+
 class App extends Component {
   state = {
-    currentUser: null
+    currentUser: null,
+    animals: [],
+    shelters: []
   }
 
   componentDidMount() {
