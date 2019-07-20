@@ -5,8 +5,8 @@ import App from './App';
 import 'semantic-ui-css/semantic.min.css'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { combineReducers } from 'redux'
-import animalsReducer from './animals_reducer.rb'
-import sheltersReducer from './shelters_reducer.rb'
+import animalsReducer from './animals_reducer.js'
+import sheltersReducer from './shelters_reducer.js'
 
 const rootReducer = combineReducers({
     animals: animalsReducer,
