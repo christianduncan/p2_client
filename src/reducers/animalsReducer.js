@@ -1,19 +1,19 @@
 export default function animalsReducer(state = { loading: false, animals: [], currentAnimal: {'name': "placeholder", 'imageURL': "test.com"} }, action) {
   switch (action.type) {
-    case "LOADING_AnimalS":
+    case "LOADING_ANIMALS":
       return {
         ...state,
         loading: true
       }
 
-    case "FETCH_AnimalS":
+    case "FETCH_ANIMALS":
       return {
         ...state,
         loading: false,
         animals: action.payload
       }
 
-    case "FETCH_Animal":
+    case "FETCH_ANIMAL":
       return {
         ...state,
         loading: false,

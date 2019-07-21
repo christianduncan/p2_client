@@ -11,3 +11,86 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+img {
+  display: inline-block;
+  max-width: 150px;
+  padding: 5px;
+}
+
+div.animal-card {
+  display: inline-block;
+  text-align: center;
+  width: 160px;
+  border-right: 1px solid black;
+  padding: 10px;
+}
+
+div.split-screen {
+  width: 45%;
+  margin: auto;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+div.animal-details {
+  left: 65%;
+  position: absolute;
+}
+
+div.welcome-splash {
+  width: 500px;
+  margin: auto;
+}
+
+div.animal-card a {
+  text-decoration: none;
+  color: black;
+}
+
+div.animal-card h3 {
+  margin-bottom: 0px;
+}
+
+div.animal-list {
+  overflow-y: auto;
+  position: absolute;
+  top: 170px;
+  left: 0;
+  bottom: 0;
+  right: 35%;
+}
+
+div.shelter-card {
+  margin-right: 25px;
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+div.shelter-card a {
+  text-decoration: none;
+}
+
+div.shelter-card h3 {
+  color: black;
+  margin-bottom: 0px;
+}
+
+div.shelter-card p {
+  color: black;
+}
+
+div.shelter-detail {
+  left: 65%;
+  position: absolute;
+}
+
+div.shelter-list {
+  overflow-y: auto;
+  position: absolute;
+  top: 170px;
+  left: 0;
+  bottom: 0;
+  right: 35%;
+}

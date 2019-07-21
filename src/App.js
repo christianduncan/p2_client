@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Switch, Route } from 'react-router-dom'
+// import { Switch, Route } from 'react-router-dom'
+import { Switch, BrowserRouter as Router, Route, Link } from "react-router-dom"
 import { Grid } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+
 
 import Profile from './containers/Profile'
 import Navbar from './components/Navbar'
 import LoginForm from './components/LoginForm'
 import SignupForm from './components/SignupForm'
+import AnimalListContainer from './containers/AnimalListContainer'
+import ShelterListContainer from './containers/ShelterListContainer'
 
 import { fetchAnimals, fetchAnimal } from './actions/animalActions'
 import { fetchShelters, fetchShelter } from './actions/shelterActions'
@@ -57,6 +62,7 @@ class App extends Component {
 
   render() {
     return (
+    <Router >
       <Grid>
         <Navbar currentUser={this.state.currentUser} logOut={this.logOut} />
         <Grid.Row centered>
@@ -71,9 +77,39 @@ class App extends Component {
             }} />
           </Switch>
         </Grid.Row>
+        
+
+          <Route path="/animals" render={(props) => <AnimalListContainer{...props} fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}  animals={this.props.animals} />} />
+          <Route path="/shelters" render={(props) => <ShelterListContainer{...props} fetchShelters={this.props.fetchShelters} fetchShelter={this.props.fetchShelter} shelters={this.props.shelters} />} />
       </Grid>
+    </Router>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    animals: state.animals,
+    shelters: state.shelters,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchAnimals: () => {
+      dispatch(fetchAnimals())
+    },
+    fetchAnimal: (animals, id) => {
+      dispatch(fetchAnimal(animals, id))
+    },
+    fetchShelters: () => {
+      dispatch(fetchShelters())
+    },
+    fetchShelter: (shelters, id) => {
+      dispatch(fetchShelter(shelters, id))
+    }
+    
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

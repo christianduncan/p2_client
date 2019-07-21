@@ -16,6 +16,14 @@ class Navbar extends React.Component {
                                 ?
 
                                 <Menu.Menu position="right">
+                                    <Link className="item" to="/animals">
+                                        Animals!
+                                    </Link>
+
+                                    <Link className="item"to="/shelters">
+                                    Shelters
+                                    </Link>
+                                    
                                     <Link className="item" to={`/users/${this.props.currentUser.id}`}>
                                         <img src={this.props.currentUser.avatar_url} alt={this.props.currentUser.username} />
                                     </Link>

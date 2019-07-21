@@ -1,9 +1,10 @@
 export function fetchAnimals() {
     return (dispatch) => {
         dispatch({ type: 'LOADING_ANIMALS' });
-        return fetch("/api/v1/animals")
+        return fetch("http://localhost:3001/api/v1/animals")
             .then(response => response.json())
             .then(responseJSON => {
+                
                 dispatch({ type: "FETCH_ANIMALS", payload: responseJSON })
             })
     }
