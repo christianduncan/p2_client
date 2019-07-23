@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class AnimalDetail extends Component {
 
     render() {
+        console.log(this.props.animal.gender)
         let description = "no description available."
         if (this.props.animal.description !== "") {
             description = this.props.animal.description
@@ -11,6 +12,7 @@ class AnimalDetail extends Component {
        
 
         return (
+            
             <div>
                 <h2>{this.props.animal.name}</h2>
                 <img src={this.props.animal.imageURL} alt="" />

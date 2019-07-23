@@ -28,15 +28,15 @@ class Profile extends React.Component {
     
 
     render() {
-        const { user } = this.props.currentUser
         
+        console.log(this.props.currentUser)
 
-        if (user) {
+        if (this.props.currentUser) {
             return (
                 <Container>
-                    <h1>Favorites</h1>
+                    <h1>Watchlist</h1>
                     <Card.Group itemsPerRow={3}>
-                        {this.props.currentUser.animal.map(animal => <Animal
+                        {this.props.currentUser.animals.map(animal => <Animal
                             key={animal.id} {...animal}
                             handleFavoriteClick={this.props.handleFavoriteClick}
                             currentUser={this.props.currentUser}

@@ -40,6 +40,8 @@ class App extends Component {
     }
   }
 
+  
+
   componentDidMount() {
     const token = localStorage.getItem("token")
     if (token) {
@@ -102,7 +104,7 @@ class App extends Component {
         </Grid.Row>
         
 
-          <Route path="/animals" render={(props) => <AnimalListContainer{...props} currentUser={this.state.currentUser} handleFavoriteClick={this.handleFavoriteClick} fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}  animals={this.props.animals} />} />
+          <Route path="/animals" render={(props) => <AnimalListContainer{...props} currentUser={this.state.currentUser} handleFavoriteClick={this.handleFavoriteClick}  fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}  animals={this.props.animals} />} />
           <Route path="/shelters" render={(props) => <ShelterListContainer{...props} fetchShelters={this.props.fetchShelters} fetchShelter={this.props.fetchShelter} shelters={this.props.shelters} />} />
       </Grid>
     </Router>
