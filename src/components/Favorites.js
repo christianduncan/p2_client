@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Card, Button, Icon } from 'semantic-ui-react'
-import Animal from '../components/Animal'
+import Animal from './Animal'
+
 
 
 class Favorites extends React.Component {
@@ -9,12 +10,12 @@ class Favorites extends React.Component {
 
 
     render() {
-        // console.log(this.props)
+        console.log(this.props)
         return (
             <Container>
                 <h1>Favorites</h1>
                 <Card.Group itemsPerRow={3}>
-                    {this.props.currentUser.animal.map(animal => <Animal
+                    {this.props.currentUser.animals.map(animal => <Animal
                         key={animal.id} {...animal}
                         handleFavoriteClick={this.props.handleFavoriteClick}
                         currentUser={this.props.currentUser}

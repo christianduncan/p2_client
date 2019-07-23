@@ -7,7 +7,7 @@ class AnimalList extends Component {
         const animalList = this.props.animals.animals || []
         return (
             <div className="animal-list">
-                {animalList.map(animal => <Animal key={animal.id} animal={animal} handleClick={this.props.handleClick} />)}
+                {animalList.map(animal => <Animal handleFavoriteClick={this.props.handleFavoriteClick} currentUser={this.props.currentUser} key={animal.id} {...animal} handleClick={this.props.handleClick} />)}
             </div>
         )
     }

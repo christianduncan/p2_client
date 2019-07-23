@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import 'semantic-ui-css/semantic.min.css'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
@@ -22,10 +23,13 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Router>
+            <Route path="/" render={(routerProps) => <App {...routerProps}/>}/>
+        </Router>)
+        
     </Provider>,
-    document.getElementById('root')
-)
+    document.getElementById('root'))
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

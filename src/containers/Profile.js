@@ -1,11 +1,11 @@
 import React from 'react'
 import { Loader, Grid, Segment, Image} from 'semantic-ui-react'
+import { Container, Card, Button, Icon } from 'semantic-ui-react'
+import Animal from '../components/Animal'
 
 
 class Profile extends React.Component {
-    state = {
-        user: null     
-    }
+    
     componentDidMount() {
         const userId = this.props.match.params.id
         fetch(`http://localhost:3001/api/v1/users/${userId}`)
@@ -28,23 +28,21 @@ class Profile extends React.Component {
     
 
     render() {
-        const { user } = this.state
+        const { user } = this.props.currentUser
+        
 
         if (user) {
             return (
-                <Grid columns={2} centered>
-                    <Grid.Column width={3}>
-                        <Segment>
-                            <Image src={user.avatar_url} fluid />
-                            <strong>{user.username}</strong><br />
-                            <strong>{user.name}</strong>
-                            
-                        </Segment>
-                        
-
-                    </Grid.Column>
-                    
-                </Grid>
+                <Container>
+                    <h1>Favorites</h1>
+                    <Card.Group itemsPerRow={3}>
+                        {this.props.currentUser.animal.map(animal => <Animal
+                            key={animal.id} {...animal}
+                            handleFavoriteClick={this.props.handleFavoriteClick}
+                            currentUser={this.props.currentUser}
+                        />)}
+                    </Card.Group>
+                </Container>
             )
         } else {
             return <Loader />

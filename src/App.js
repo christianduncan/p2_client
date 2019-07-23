@@ -15,12 +15,29 @@ import ShelterListContainer from './containers/ShelterListContainer'
 
 import { fetchAnimals, fetchAnimal } from './actions/animalActions'
 import { fetchShelters, fetchShelter } from './actions/shelterActions'
+import Favorites from './components/Favorites'
 
 class App extends Component {
   state = {
     currentUser: null,
     animals: [],
     shelters: []
+  }
+
+  handleFavoriteClick = (animalID) => {
+    
+    if (this.state.currentUser !== null) {
+      fetch(`http://localhost:3001/api/v1/favorite/${this.state.currentUser.id}/animal/${animalID}`)
+        .then(response => response.json())
+        .then((data) => {
+          console.log('success')
+          this.setState({
+            currentUser: data,
+          })
+        })
+    } else {
+      alert('You are not logged in')
+    }
   }
 
   componentDidMount() {
@@ -53,23 +70,29 @@ class App extends Component {
   }
 
   logOut = () => {
+    this.props.history.push("/login")
     this.setState({
       currentUser: null
     })
+    localStorage.removeItem("token")
 
-    this.props.history.push("/login")
   }
 
   render() {
+    
     return (
     <Router >
       <Grid>
         <Navbar currentUser={this.state.currentUser} logOut={this.logOut} />
         <Grid.Row centered>
           <Switch>
-            <Route path="/users/:id" component={Profile} />
+              <Route path="/users/:id" render={routerProps => <Profile
+                currentUser={this.state.currentUser}
+                handleFavoriteClick={this.handleFavoriteClick}
+                favorites={this.state.favorites}
+                {...routerProps} />} />
             
-            <Route path="/login" render={(routerProps) => {
+            <Route exact path="/login" render={(routerProps) => {
               return <LoginForm setCurrentUser={this.setCurrentUser} {...routerProps} />
             }} />
             <Route path="/signup" render={(routerProps) => {
@@ -79,7 +102,7 @@ class App extends Component {
         </Grid.Row>
         
 
-          <Route path="/animals" render={(props) => <AnimalListContainer{...props} fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}  animals={this.props.animals} />} />
+          <Route path="/animals" render={(props) => <AnimalListContainer{...props} currentUser={this.state.currentUser} handleFavoriteClick={this.handleFavoriteClick} fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}  animals={this.props.animals} />} />
           <Route path="/shelters" render={(props) => <ShelterListContainer{...props} fetchShelters={this.props.fetchShelters} fetchShelter={this.props.fetchShelter} shelters={this.props.shelters} />} />
       </Grid>
     </Router>

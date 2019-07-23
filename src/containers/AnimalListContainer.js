@@ -22,10 +22,11 @@ class AnimalListContainer extends Component {
  
 
     render() {
+        console.log(this.props.currentUser)
         return (
             <div>
                 <div className="split-screen">
-                    <AnimalList animals={this.props.animals} handleClick={this.handleClick} />
+                    <AnimalList animals={this.props.animals} handleFavoriteClick={this.props.handleFavoriteClick} currentUser={this.props.currentUser}  handleClick={this.handleClick} />
                 </div>
                 <div className="split-screen">
                     <div className="animal-details">
