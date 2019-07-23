@@ -1,6 +1,23 @@
 import React, { Component } from 'react';
+import { Card, Button, Icon } from 'semantic-ui-react'
+
 
 class Animal extends Component {
+
+
+    state = {
+        favorited: false
+    }
+    handleFavorited = (animalID) => {
+        if (this.props.currentUser && this.props.currentUser.animals.find(animal => animal.id === animalID)) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    
+
     render() {
         const animal = this.props.animal
         return (
