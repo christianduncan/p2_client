@@ -37,12 +37,15 @@ class AnimalList extends Component {
     render() {
             return (
                 <div>
-                    <SearchBar handleSearch={this.props.handleSearch} showNoResults={false} />
                     <br></br>
                     
-                        <Card.Group itemsPerRow={1}>
+                    <SearchBar handleSearch={this.props.handleSearch} showNoResults={false} />
+                    <br></br>
+                    <Container>
+                        <Card.Group >
                             {this.props.searchTerm ? this.filterAnimal() : this.renderAnimal()}
                         </Card.Group>
+                    </Container>
                     
                 </div>
 

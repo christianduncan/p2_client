@@ -3,19 +3,26 @@ import { Grid, Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 
+
+
 class Navbar extends React.Component {
+   
+
     render() {
         return (
-            <Grid.Row>
+            <Grid.Row >
                 <Grid.Column width={16}>
-                    <Menu>
+                    <Menu fixed={'top'} className='ui stackable teal inverted menu'  size={'medium'}>
+                    
                         
                         {
                             this.props.currentUser
 
                                 ?
 
-                                <Menu.Menu position="right">
+                                
+                                
+                                <Menu.Menu position="right" >
                                     <Link className="item" to="/animals">
                                         Animals!
                                     </Link>
@@ -44,6 +51,7 @@ class Navbar extends React.Component {
                                 </Menu.Menu>
 
                         }
+                    
                     </Menu>
                 </Grid.Column>
             </Grid.Row>
