@@ -47,6 +47,8 @@ class App extends Component {
     })
   }
 
+
+
   
 
   componentDidMount() {
@@ -87,6 +89,8 @@ class App extends Component {
 
   }
 
+  
+
   render() {
     
     return (
@@ -99,6 +103,7 @@ class App extends Component {
                 currentUser={this.state.currentUser}
                 handleFavoriteClick={this.handleFavoriteClick}
                 favorites={this.state.favorites}
+                handleProfileClick={this.handleProfileClick}
                 {...routerProps} />} />
             
             <Route exact path="/login" render={(routerProps) => {

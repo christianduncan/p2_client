@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Animal from './Animal'
 import SearchBar from '../components/SearchBar'
-import { Card, Container } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 
 class AnimalList extends Component {
 
@@ -24,6 +24,7 @@ class AnimalList extends Component {
         )
         return (
             <div className="animal-list">
+                
             {matched.map(animal => <Animal
             key={animal.id}
             handleFavoriteClick={this.props.handleFavoriteClick}
@@ -34,13 +35,15 @@ class AnimalList extends Component {
         </div>
         )
     }
+
+
     render() {
             return (
                 <div>
                     <SearchBar handleSearch={this.props.handleSearch} showNoResults={false} />
-                    <br></br>
                     
-                        <Card.Group itemsPerRow={1}>
+                    
+                        <Card.Group >
                             {this.props.searchTerm ? this.filterAnimal() : this.renderAnimal()}
                         </Card.Group>
                     

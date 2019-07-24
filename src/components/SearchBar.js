@@ -5,7 +5,7 @@ class SearchBar extends React.Component {
 
     render() {
         return (
-            <div class="ui fluid icon input">
+            <div class="ui icon input">
                 <input onChange={(e) => this.props.handleSearch(e)} type="text" placeholder="Search by Animal Name..." />
                 <i aria-hidden="true" class="search icon"></i>
             </div>
