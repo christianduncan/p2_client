@@ -15,7 +15,7 @@ import ShelterListContainer from './containers/ShelterListContainer'
 
 import { fetchAnimals, fetchAnimal } from './actions/animalActions'
 import { fetchShelters, fetchShelter } from './actions/shelterActions'
-import Favorites from './components/Favorites'
+
 
 class App extends Component {
   state = {

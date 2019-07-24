@@ -20,11 +20,6 @@ export default function animalsReducer(state = { loading: false, animals: [], cu
         currentAnimal: action.payload
       }
 
-    case "TOGGLE_FAV":
-      return {
-        ...state,
-        currentAnimal: action.payload
-      }
 
     default:
       return state

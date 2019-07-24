@@ -34,7 +34,7 @@ class Profile extends React.Component {
         if (this.props.currentUser) {
             return (
                 <Container>
-                    <h1>Watchlist</h1>
+                    <h1>{this.props.currentUser.name}'s Watchlist</h1>
                     <Card.Group itemsPerRow={3}>
                         {this.props.currentUser.animals.map(animal => <Animal
                             key={animal.id} {...animal}
