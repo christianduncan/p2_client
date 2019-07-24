@@ -21,7 +21,8 @@ class App extends Component {
   state = {
     currentUser: null,
     animals: [],
-    shelters: []
+    shelters: [],
+    searchTerm: ''
   }
 
   handleFavoriteClick = (animalID) => {
@@ -38,6 +39,12 @@ class App extends Component {
     } else {
       alert('You are not logged in')
     }
+  }
+
+  handleSearch = (event) => {
+    this.setState({
+      searchTerm: event.target.value.toLowerCase()
+    })
   }
 
   
@@ -104,7 +111,10 @@ class App extends Component {
         </Grid.Row>
         
 
-          <Route path="/animals" render={(props) => <AnimalListContainer{...props} currentUser={this.state.currentUser} handleFavoriteClick={this.handleFavoriteClick}  fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}  animals={this.props.animals} />} />
+          <Route path="/animals" render={(props) => <AnimalListContainer{...props} 
+          currentUser={this.state.currentUser} handleFavoriteClick={this.handleFavoriteClick}
+          handleSearch={this.handleSearch} searchTerm={this.state.searchTerm}
+          fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}  animals={this.props.animals} />} />
           <Route path="/shelters" render={(props) => <ShelterListContainer{...props} fetchShelters={this.props.fetchShelters} fetchShelter={this.props.fetchShelter} shelters={this.props.shelters} />} />
       </Grid>
     </Router>
