@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Menu } from 'semantic-ui-react'
+import { Grid, Menu, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import SearchBar from '../components/SearchBar'
 
@@ -14,7 +14,7 @@ class Navbar extends React.Component {
             <Grid.Row >
                 <Grid.Column width={16}>
                     <Menu fixed={'top'} className='ui stackable teal inverted menu'  size={'medium'}>
-                    
+                        <Image size={'mini'} src={"https://github.com/christianduncan/p2_client/blob/master/public/RescueLogo.png"} />
                         <SearchBar handleSearch={this.props.handleSearch} showNoResults={false}/> 
                         {
                             this.props.currentUser
