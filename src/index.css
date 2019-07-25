@@ -32,6 +32,10 @@ img {
   margin-right: 5px !important;
 }
 
+.ui.image.resize{
+  max-height: 175px;
+}
+
 div.animal-card {
   display: inline-block;
   text-align: center;
@@ -59,7 +63,7 @@ div.animal-details {
   border-width: 5px;
   border-color: teal;
   width: 80%;
-  height: 680px;
+  height: 80%;
   margin-top: 9%;
 }
 

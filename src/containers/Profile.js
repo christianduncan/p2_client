@@ -5,6 +5,17 @@ import Animal from '../components/Animal'
 
 
 class Profile extends React.Component {
+    constructor(props) {
+        super(props)
+        this.handleClick = this.handleClick.bind(this)
+
+    }
+
+
+    handleClick(e, id) {
+        e.preventDefault()
+        this.props.fetchAnimal(this.props.animals, id)
+    }
     
     componentDidMount() {
         const userId = this.props.match.params.id
@@ -13,6 +24,7 @@ class Profile extends React.Component {
             .then(response => {
                 this.setState({ user: response })
             })
+        this.props.fetchAnimals()
     }
 
     
@@ -33,12 +45,13 @@ class Profile extends React.Component {
 
         if (this.props.currentUser) {
             return (
-                <Container>
+                <Container text>
                     <br></br>
-                    <h1>{this.props.currentUser.name}'s Watchlist</h1>
-                    <Card.Group itemsPerRow={3}>
+                    <h1>{this.props.currentUser.name.charAt(0).toUpperCase() + this.props.currentUser.name.slice(1)}'s Watchlist</h1>
+                    <Card.Group  itemsPerRow={4}>
                         {this.props.currentUser.animals.map(animal => <Animal
                             key={animal.id} {...animal}
+                            handleClick={this.handleClick}
                             handleFavoriteClick={this.props.handleFavoriteClick}
                             currentUser={this.props.currentUser}
                         />)}

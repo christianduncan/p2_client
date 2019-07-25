@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button, Container } from 'semantic-ui-react'
+import { Card, Image, Container } from 'semantic-ui-react'
 
 class AnimalDetail extends Component {
 
@@ -16,7 +16,7 @@ class AnimalDetail extends Component {
             
             <Container textAlign={'center'} >
                 <h2>{this.props.animal.name}</h2>
-                <img src={this.props.animal.imageURL} alt="" />
+                <Image centered fluid src={this.props.animal.imageURL} alt="" />
                 <p>Breed-size: {this.props.animal.breed} -
                  {this.props.animal.size}</p>
                 <p>Age: {this.props.animal.age}-{this.props.animal.gender}</p>

@@ -8,8 +8,9 @@ class AnimalListContainer extends Component {
     constructor(props) {
         super(props)
         this.handleClick = this.handleClick.bind(this)
-       
+
     }
+    
 
     componentDidMount() {
         this.props.fetchAnimals()
@@ -23,7 +24,7 @@ class AnimalListContainer extends Component {
  
 
     render() {
-        console.log(this.props.currentUser)
+        
         return (
             <div>
                 <div className="split-screen">
