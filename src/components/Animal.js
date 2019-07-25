@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button, Icon } from 'semantic-ui-react'
+import { Card, Button, Icon, Image} from 'semantic-ui-react'
 
 
 class Animal extends Component {
@@ -23,12 +23,16 @@ class Animal extends Component {
     render() {
         
         return (
-            <div className="animal-card" id={this.props.id} >
+            <Card border='teal' className="ui-centered-card" id={this.props.id} centered>
+                <Image src={this.props.imageURL} alt=""  onClick={(e) => { this.props.handleClick(e, this.props.id) }} />
+                <Card.Content>
                 
-                    <h3>{this.props.name}</h3>
-                    <p>{this.props.city}, {this.props.state}</p>
+                    <Card.Header>{this.props.name}</Card.Header>
+                    <Card.Description>{this.props.city}, {this.props.state}</Card.Description>
                 
-                <img src={this.props.imageURL} alt="" height="150" onClick={(e) => { this.props.handleClick(e, this.props.id) }}/>
+                
+                </Card.Content>
+                
                 <Button
                     onClick={() => {
                        this.props.handleFavoriteClick(this.props.id)
@@ -38,7 +42,7 @@ class Animal extends Component {
                     
                 </Button>
                 
-            </div>
+            </Card>
         )
     }
 }

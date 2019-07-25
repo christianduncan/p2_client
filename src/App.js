@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 // import { Switch, Route } from 'react-router-dom'
 import { Switch, BrowserRouter as Router, Route, Link } from "react-router-dom"
-import { Grid } from 'semantic-ui-react'
+import { Grid} from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 
@@ -90,9 +90,10 @@ class App extends Component {
   render() {
     
     return (
-    <Router >
+    <Router>
+      <div>
       <Grid>
-        <Navbar currentUser={this.state.currentUser} logOut={this.logOut} />
+        <Navbar handleSearch={this.handleSearch} currentUser={this.state.currentUser} logOut={this.logOut} />
         <Grid.Row centered>
           <Switch>
               <Route path="/users/:id" render={routerProps => <Profile
@@ -117,7 +118,10 @@ class App extends Component {
           fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}  animals={this.props.animals} />} />
           <Route path="/shelters" render={(props) => <ShelterListContainer{...props} fetchShelters={this.props.fetchShelters} fetchShelter={this.props.fetchShelter} shelters={this.props.shelters} />} />
       </Grid>
+      
+        </div>
     </Router>
+    
     );
   }
 }

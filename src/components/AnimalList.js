@@ -2,17 +2,17 @@
 import React, { Component } from 'react';
 import Animal from './Animal'
 import SearchBar from '../components/SearchBar'
-import { Card, Container } from 'semantic-ui-react';
+import { Card, Container} from 'semantic-ui-react';
 
 class AnimalList extends Component {
 
     renderAnimal = () => {
         const animalList = this.props.animals.animals || []
         return (
-            <div className="animal-list">
-            {animalList.map(animal => <Animal handleFavoriteClick={this.props.handleFavoriteClick} 
-        currentUser={this.props.currentUser} key={animal.id} {...animal} handleClick={this.props.handleClick} />)}
-        </div>
+            
+            animalList.map(animal => <Animal handleFavoriteClick={this.props.handleFavoriteClick} 
+        currentUser={this.props.currentUser} key={animal.id} {...animal} handleClick={this.props.handleClick} />)
+        
         )
     }
 
@@ -23,31 +23,31 @@ class AnimalList extends Component {
         }
         )
         return (
-            <div className="animal-list">
-            {matched.map(animal => <Animal
+            
+            matched.map(animal => <Animal
             key={animal.id}
             handleFavoriteClick={this.props.handleFavoriteClick}
             currentUser={this.props.currentUser}
             handleClick={this.props.handleClick}
             {...animal}
-        />)}
-        </div>
+        />)
+        
         )
     }
     render() {
             return (
-                <div>
-                    <br></br>
+                
                     
-                    <SearchBar handleSearch={this.props.handleSearch} showNoResults={false} />
-                    <br></br>
-                    <Container>
-                        <Card.Group >
+                    
+                    
+                
+                    <Container className='scroll'>
+                        <Card.Group itemsPerRow={4}>
                             {this.props.searchTerm ? this.filterAnimal() : this.renderAnimal()}
                         </Card.Group>
                     </Container>
                     
-                </div>
+                
 
 
             )

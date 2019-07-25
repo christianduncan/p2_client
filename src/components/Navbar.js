@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid, Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import SearchBar from '../components/SearchBar'
 
 
 
@@ -14,7 +15,7 @@ class Navbar extends React.Component {
                 <Grid.Column width={16}>
                     <Menu fixed={'top'} className='ui stackable teal inverted menu'  size={'medium'}>
                     
-                        
+                        <SearchBar handleSearch={this.props.handleSearch} showNoResults={false} />
                         {
                             this.props.currentUser
 
@@ -23,6 +24,10 @@ class Navbar extends React.Component {
                                 
                                 
                                 <Menu.Menu position="right" >
+                                    <Link className="item" to={`/users/${this.props.currentUser.id}`}>
+                                        <img src={this.props.currentUser.avatar_url} alt={this.props.currentUser.username} />
+                                    </Link>
+                                   
                                     <Link className="item" to="/animals">
                                         Animals!
                                     </Link>
@@ -31,9 +36,7 @@ class Navbar extends React.Component {
                                     Shelters
                                     </Link>
                                     
-                                    <Link className="item" to={`/users/${this.props.currentUser.id}`}>
-                                        <img src={this.props.currentUser.avatar_url} alt={this.props.currentUser.username} />
-                                    </Link>
+
                                     <Menu.Item onClick={this.props.logOut}>
                                         Log out
 								</Menu.Item>
@@ -55,6 +58,7 @@ class Navbar extends React.Component {
                     </Menu>
                 </Grid.Column>
             </Grid.Row>
+            
         )
     }
 }

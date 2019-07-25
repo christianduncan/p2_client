@@ -19,6 +19,19 @@ img {
   border-radius: 5px 5px 0 0;
 }
 
+.ui.container.scroll{
+  overflow-y: auto;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  bottom: 0;
+  right: 35%;
+  width: 60% !important;
+  height: 90% !important;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}
+
 div.animal-card {
   display: inline-block;
   text-align: center;
@@ -40,8 +53,14 @@ div.split-screen {
 }
 
 div.animal-details {
-  left: 65%;
-  position: absolute;
+  left: 80%;
+  position: relative;
+  border-style: dotted;
+  border-width: 5px;
+  border-color: teal;
+  width: 80%;
+  height: 680px;
+  margin-top: 9%;
 }
 
 div.welcome-splash {
@@ -63,7 +82,7 @@ div.animal-card h3 {
 div.animal-list {
   overflow-y: auto;
   position: absolute;
-  top: 170px;
+  top: 10px;
   left: 0;
   bottom: 0;
   right: 35%;

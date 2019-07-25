@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AnimalList from '../components/AnimalList'
 import AnimalDetail from '../components/AnimalDetail'
+import { Grid,Divider } from 'semantic-ui-react'
 
 class AnimalListContainer extends Component {
 
@@ -28,6 +29,7 @@ class AnimalListContainer extends Component {
                 <div className="split-screen">
                     <AnimalList handleSearch={this.props.handleSearch} searchTerm={this.props.searchTerm} animals={this.props.animals} handleFavoriteClick={this.props.handleFavoriteClick} currentUser={this.props.currentUser}  handleClick={this.handleClick} />
                 </div>
+
                 <div className="split-screen">
                     <div className="animal-details">
                         <AnimalDetail animal={this.props.animals.currentAnimal}  />

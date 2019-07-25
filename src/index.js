@@ -25,7 +25,7 @@ ReactDOM.render(
     <Provider store={store}>
         <Router>
             <Route path="/" render={(routerProps) => <App {...routerProps}/>}/>
-        </Router>)
+        </Router>
         
     </Provider>,
     document.getElementById('root'))
