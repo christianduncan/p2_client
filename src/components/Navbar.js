@@ -13,8 +13,8 @@ class Navbar extends React.Component {
         return (
             <Grid.Row >
                 <Grid.Column width={16}>
-                    <Menu fixed={'top'} className='ui stackable blue inverted menu'  size={'medium'}>
-                        <Image size={'small'} src={"https://github.com/christianduncan/p2_client/blob/master/public/RescueLogo.png?raw=true"} />
+                    <Menu fixed={'top'} className='ui stackable teal inverted menu'  size={'medium'}>
+                        <Image size={'small'} src={"https://github.com/christianduncan/p2_client/blob/master/public/logo2.png?raw=true"} />
                         <SearchBar handleSearch={this.props.handleSearch} showNoResults={false}/> 
                         {
                             this.props.currentUser
