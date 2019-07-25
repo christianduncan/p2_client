@@ -1,7 +1,7 @@
 import React from 'react'
 import { Loader, Grid, Segment, Image} from 'semantic-ui-react'
 import { Container, Card, Button, Icon } from 'semantic-ui-react'
-import Animal from '../components/Animal'
+import AnimalDetail from '../components/AnimalDetail'
 
 
 class Profile extends React.Component {
@@ -48,14 +48,15 @@ class Profile extends React.Component {
                 <Container text>
                     <br></br>
                     <h1>{this.props.currentUser.name.charAt(0).toUpperCase() + this.props.currentUser.name.slice(1)}'s Watchlist</h1>
-                    <Card.Group  itemsPerRow={4}>
-                        {this.props.currentUser.animals.map(animal => <Animal
-                            key={animal.id} {...animal}
+                    
+                        {this.props.currentUser.animals.map(animal => <AnimalDetail
+                            
+                            animal={animal}
                             handleClick={this.handleClick}
                             handleFavoriteClick={this.props.handleFavoriteClick}
                             currentUser={this.props.currentUser}
                         />)}
-                    </Card.Group>
+                    
                 </Container>
             )
         } else {

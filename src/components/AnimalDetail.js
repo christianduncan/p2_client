@@ -4,7 +4,7 @@ import { Card, Image, Container } from 'semantic-ui-react'
 class AnimalDetail extends Component {
 
     render() {
-        console.log(this.props.animal.gender)
+        
         let description = "no description available."
         if (this.props.animal.description !== "") {
             description = this.props.animal.description
@@ -15,7 +15,8 @@ class AnimalDetail extends Component {
         return (
             
             <Container textAlign={'center'} >
-                <Card>
+                <Card >
+                
                 <Image centered fluid src={this.props.animal.imageURL} alt="" />
                 <Card.Content>
                 <Card.Header>{this.props.animal.name}</Card.Header>
@@ -30,6 +31,7 @@ class AnimalDetail extends Component {
                 <p>{this.props.animal.name} is waiting for you at {this.props.animal.address1} in {this.props.animal.city},{this.props.animal.state}</p>
                 </Card.Content>
                 <h1 centered>🐾🐾🐾</h1>
+                
                 </Card>
             </Container>  
             
