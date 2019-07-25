@@ -15,7 +15,7 @@ class Navbar extends React.Component {
                 <Grid.Column width={16}>
                     <Menu fixed={'top'} className='ui stackable teal inverted menu'  size={'medium'}>
                     
-                        <SearchBar handleSearch={this.props.handleSearch} showNoResults={false} />
+                        <SearchBar handleSearch={this.props.handleSearch} showNoResults={false}/> 
                         {
                             this.props.currentUser
 

@@ -42,9 +42,9 @@ class AnimalList extends Component {
                     
                 
                     <Container className='scroll'>
-                        <Card.Group itemsPerRow={4}>
+                    <Card.Group itemsPerRow={4}>
                             {this.props.searchTerm ? this.filterAnimal() : this.renderAnimal()}
-                        </Card.Group>
+                    </Card.Group >
                     </Container>
                     
                 

@@ -1,4 +1,5 @@
 body {
+  background-color: rgb(255, 255, 255) !important;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -59,12 +60,17 @@ div.split-screen {
 div.animal-details {
   left: 80%;
   position: relative;
-  border-style: dotted;
+  /* border-style: dotted;
   border-width: 5px;
-  border-color: teal;
+  border-color: teal; */
   width: 80%;
   height: 80%;
   margin-top: 9%;
+}
+
+#detailsname {
+  position: relative;
+  top: 90%;
 }
 
 div.welcome-splash {
@@ -124,3 +130,64 @@ div.shelter-list {
   bottom: 0;
   right: 35%;
 }
+
+  .rainbow {
+    
+     /* Font options */
+     font-family: 'Noto Sans HK', sans-serif;
+    font-size:40px;
+
+     /* Chrome, Safari, Opera */
+    -webkit-animation: rainbow 5s infinite;
+
+    /* Internet Explorer */
+    -ms-animation: rainbow 5s infinite;
+
+    /* Standar Syntax */
+    animation: rainbow 5s infinite;
+  }
+
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes rainbow{
+    0%{color: orange;}
+    10%{color: purple;}
+      20%{color: red;}
+    30%{color: CadetBlue;}
+      40%{color: yellow;}
+    50%{color: coral;}
+      60%{color: green;}
+    70%{color: cyan;}
+    80%{color: DeepPink;}
+    90%{color: DodgerBlue;}
+      100%{color: orange;}
+  }
+
+  /* Internet Explorer */
+  @-ms-keyframes rainbow{
+     0%{color: orange;}
+    10%{color: purple;}
+      20%{color: red;}
+    30%{color: CadetBlue;}
+      40%{color: yellow;}
+    50%{color: coral;}
+      60%{color: green;}
+    70%{color: cyan;}
+    80%{color: DeepPink;}
+    90%{color: DodgerBlue;}
+      100%{color: orange;}
+  }
+
+  /* Standar Syntax */
+  @keyframes rainbow{
+      0%{color: orange;}
+    10%{color: purple;}
+      20%{color: red;}
+    30%{color: CadetBlue;}
+      40%{color: yellow;}
+    50%{color: coral;}
+      60%{color: green;}
+    70%{color: cyan;}
+    80%{color: DeepPink;}
+    90%{color: DodgerBlue;}
+      100%{color: orange;}
+  }

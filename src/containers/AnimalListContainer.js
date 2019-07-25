@@ -26,7 +26,7 @@ class AnimalListContainer extends Component {
     render() {
         
         return (
-            <div>
+            <div >
                 <div className="split-screen">
                     <AnimalList handleSearch={this.props.handleSearch} searchTerm={this.props.searchTerm} animals={this.props.animals} handleFavoriteClick={this.props.handleFavoriteClick} currentUser={this.props.currentUser}  handleClick={this.handleClick} />
                 </div>

@@ -23,7 +23,7 @@ class Animal extends Component {
     render() {
         
         return (
-            <Card border='teal' className="ui-centered-card" id={this.props.id} centered>
+            <Card  className="ui-centered-card" id={this.props.id} centered>
                 <Image  className='resize' src={this.props.imageURL} alt=""  onClick={(e) => { this.props.handleClick(e, this.props.id) }} />
                 <Card.Content>     
                     <Card.Header>{this.props.name}</Card.Header>
