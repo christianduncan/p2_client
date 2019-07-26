@@ -33,6 +33,10 @@ img {
   margin-right: 5px !important;
 }
 
+ui.facebook{
+  color: blue !important;
+}
+
 .ui.image.resize{
   max-height: 175px;
 }

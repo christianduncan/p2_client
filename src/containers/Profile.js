@@ -46,11 +46,36 @@ class Profile extends React.Component {
 
         if (this.props.currentUser) {
             return (
-                <Container text>
+                <div>
                     <br></br>
-                    <h1>{this.props.currentUser.name.charAt(0).toUpperCase() + this.props.currentUser.name.slice(1)}'s Watchlist</h1>
                     <br></br>
-                    <Card.Group className="profile-details" itemsPerRow={3}>
+                    <Container textAlign={'left'} >
+                        
+                        <Icon.Group size='huge'>
+                            
+                            <Icon color={'teal'} name='mail'/>
+                        </Icon.Group>
+                            <Button.Group>
+                            <Button color={'facebook'} class="ui facebook button">
+                                <i class="facebook icon"></i>
+                                Facebook
+                            </Button>
+                        
+                        
+                        <Button color={'twitter'} class="ui twitter button">
+                            <i class="twitter icon"></i>
+                            Twitter
+                        </Button>
+                        </Button.Group>
+                        
+                    </Container>
+                <Container centered text>
+                    
+                        
+                        <h1>{this.props.currentUser.name.charAt(0).toUpperCase() + this.props.currentUser.name.slice(1)}'s Watchlist</h1>
+                    
+                    <br></br>
+                    <Card.Group className="profile-details" >
                         {this.props.currentUser.animals.map(animal => <AnimalDetail
                             
                             animal={animal}
@@ -61,6 +86,7 @@ class Profile extends React.Component {
                     </Card.Group>
                     
                 </Container>
+                </div>
             )
         } else {
             return <Loader />

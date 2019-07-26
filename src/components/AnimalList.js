@@ -21,7 +21,7 @@ class AnimalList extends Component {
         const animalLi = this.props.animals.animals || []
         const animalList = animalLi.slice(0).reverse()
         let matched = animalList.filter(animal => {
-            return animal.name.toLowerCase().includes(this.props.searchTerm)
+            return animal.state.toLowerCase().includes(this.props.searchTerm)
         }
         )
         return (

@@ -30,7 +30,7 @@ class Animal extends Component {
                     <Card.Description>{this.props.city}, {this.props.state}</Card.Description>
                 </Card.Content>
                 
-                <Button
+                <Button color={'teal'}
                     onClick={() => {
                        this.props.handleFavoriteClick(this.props.id)
                         
