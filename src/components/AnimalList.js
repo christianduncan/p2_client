@@ -7,7 +7,8 @@ import { Card, Container} from 'semantic-ui-react';
 class AnimalList extends Component {
 
     renderAnimal = () => {
-        const animalList = this.props.animals.animals || []
+        const animalLi = this.props.animals.animals || []
+        const animalList = animalLi.slice(0).reverse()
         return (
             
             animalList.map(animal => <Animal handleFavoriteClick={this.props.handleFavoriteClick} 
@@ -17,7 +18,8 @@ class AnimalList extends Component {
     }
 
     filterAnimal = () => {
-        const animalList = this.props.animals.animals || []
+        const animalLi = this.props.animals.animals || []
+        const animalList = animalLi.slice(0).reverse()
         let matched = animalList.filter(animal => {
             return animal.name.toLowerCase().includes(this.props.searchTerm)
         }

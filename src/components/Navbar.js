@@ -33,7 +33,7 @@ class Navbar extends React.Component {
                                     </Link>
 
                                     <Link className="item"to="/shelters">
-                                    Shelters
+                                    Local Shelters 
                                     </Link>
                                     
 

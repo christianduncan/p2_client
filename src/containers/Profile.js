@@ -4,6 +4,7 @@ import { Container, Card, Button, Icon } from 'semantic-ui-react'
 import AnimalDetail from '../components/AnimalDetail'
 
 
+
 class Profile extends React.Component {
     constructor(props) {
         super(props)
@@ -48,6 +49,7 @@ class Profile extends React.Component {
                 <Container text>
                     <br></br>
                     <h1>{this.props.currentUser.name.charAt(0).toUpperCase() + this.props.currentUser.name.slice(1)}'s Watchlist</h1>
+                    <br></br>
                     <Card.Group className="profile-details" itemsPerRow={3}>
                         {this.props.currentUser.animals.map(animal => <AnimalDetail
                             
