@@ -13,8 +13,9 @@ class Navbar extends React.Component {
         return (
             <Grid.Row >
                 <Grid.Column width={16}>
-                    <Menu secondary className='ui stackable teal inverted menu'  size={'medium'}>
+                    <Menu  id={'nav'} secondary icon className='ui stackable black  menu'  size={'medium'}>
                         <Image size={'small'} src={"https://github.com/christianduncan/p2_client/blob/master/public/RescueLogo.png?raw=true"} />
+                        
                         <SearchBar handleSearch={this.props.handleSearch} showNoResults={false}/> 
                         {
                             this.props.currentUser

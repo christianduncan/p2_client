@@ -37,6 +37,30 @@ ui.facebook{
   color: blue !important;
 }
 
+
+
+#search-input{
+  padding: 0px 50px !important;
+  margin-left: 70% !important;
+  margin-top: 4% !important;
+  height: 60% !important;
+  width: 100% !important;
+  
+}
+
+#icon-search{
+  padding: 0px 50px !important;
+  margin-left: 70% !important;
+  
+  
+}
+
+#nav{
+  padding: .5%;
+  
+}
+
+
 .ui.image.resize{
   max-height: 175px;
 }

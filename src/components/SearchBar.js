@@ -5,9 +5,9 @@ class SearchBar extends React.Component {
 
     render() {
         return (
-            <div class="ui icon input">
-                <input onChange={(e) => this.props.handleSearch(e)} type="text" placeholder="Search by State (e.g. NY)" />
-                <i aria-hidden="true" class="search icon"></i>
+            <div id={'search'} class="ui icon input">
+                <input id={'search-input'} onChange={(e) => this.props.handleSearch(e)} type="text" placeholder="Search by State (e.g. NY)" />
+                <i id={'icon-search'} aria-hidden="true" class="search icon"></i>
             </div>
         )
     }
