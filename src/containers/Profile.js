@@ -47,8 +47,8 @@ class Profile extends React.Component {
         if (this.props.currentUser) {
             return (
                 <div>
-                    <br></br>
-                    <br></br>
+                    
+                    
                     <Container textAlign={'left'} >
                         
                         <Icon.Group size='huge'>
