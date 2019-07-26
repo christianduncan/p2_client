@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 import { Card, Image, Container } from 'semantic-ui-react'
+import {
+    FacebookShareButton,
+    
+    TwitterShareButton,
+    
+    RedditShareButton,
+    
+    EmailShareButton,
+} from 'react-share';
 
 class AnimalDetail extends Component {
 
@@ -17,9 +26,10 @@ class AnimalDetail extends Component {
             <Container textAlign={'center'} >
                 <Card>
                 
-                <Image centered fluid src={this.props.animal.imageURL} alt="" />
+                    <Image centered fluid src={this.props.animal.imageURL} alt="" />
                 <Card.Content>
                 <Card.Header>{this.props.animal.name}</Card.Header>
+                
                         <Card.Description>Breed: {this.props.animal.breed}</Card.Description>
                         <Card.Description>Gender: {this.props.animal.gender}</Card.Description>
                         <Card.Description>Age: {this.props.animal.age}</Card.Description>

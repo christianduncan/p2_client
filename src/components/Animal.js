@@ -23,8 +23,8 @@ class Animal extends Component {
     render() {
         
         return (
-            <Card  className="ui-centered-card" id={this.props.id} centered>
-                <Image  className='resize' src={this.props.imageURL} alt=""  onClick={(e) => { this.props.handleClick(e, this.props.id) }} />
+            <Card onClick={(e) => { this.props.handleClick(e, this.props.id) }} className="ui-centered-card" id={this.props.id} centered>
+                <Image className='resize' src={this.props.imageURL} alt=""   />
                 <Card.Content>     
                     <Card.Header>{this.props.name}</Card.Header>
                     <Card.Description>{this.props.city}, {this.props.state}</Card.Description>
