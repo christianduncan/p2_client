@@ -48,7 +48,7 @@ class Profile extends React.Component {
                 <Container text>
                     <br></br>
                     <h1>{this.props.currentUser.name.charAt(0).toUpperCase() + this.props.currentUser.name.slice(1)}'s Watchlist</h1>
-                    
+                    <Card.Group className="profile-details" itemsPerRow={3}>
                         {this.props.currentUser.animals.map(animal => <AnimalDetail
                             
                             animal={animal}
@@ -56,6 +56,7 @@ class Profile extends React.Component {
                             handleFavoriteClick={this.props.handleFavoriteClick}
                             currentUser={this.props.currentUser}
                         />)}
+                    </Card.Group>
                     
                 </Container>
             )

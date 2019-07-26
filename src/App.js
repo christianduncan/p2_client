@@ -99,6 +99,7 @@ class App extends Component {
               <Route path="/users/:id" render={routerProps => <Profile
                 currentUser={this.state.currentUser}
                 handleFavoriteClick={this.handleFavoriteClick}
+                handleSearch={this.handleSearch}
                 favorites={this.state.favorites}
                 fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}
                 animals={this.props.animals}

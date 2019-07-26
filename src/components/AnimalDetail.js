@@ -15,7 +15,7 @@ class AnimalDetail extends Component {
         return (
             
             <Container textAlign={'center'} >
-                <Card >
+                <Card>
                 
                 <Image centered fluid src={this.props.animal.imageURL} alt="" />
                 <Card.Content>
@@ -30,6 +30,7 @@ class AnimalDetail extends Component {
                 <p>Phone: {this.props.animal.phone}</p>
                 <p>{this.props.animal.name} is waiting for you at {this.props.animal.address1} in {this.props.animal.city},{this.props.animal.state}</p>
                 </Card.Content>
+                
                 <h1 centered>🐾🐾🐾</h1>
                 
                 </Card>
