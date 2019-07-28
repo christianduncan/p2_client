@@ -33,6 +33,19 @@ img {
   margin-right: 5px !important;
 }
 
+.ui.container.rolly{
+  overflow-y: auto;
+  position: absolute;
+  top: 100px;
+  left: 25%;
+  bottom: 10px;
+  right: 35%;
+  width: 60% !important;
+  height: 500% !important;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}
+
 ui.facebook{
   color: blue !important;
 }
@@ -93,18 +106,18 @@ div.animal-details {
   border-color: teal; */
   width: 80%;
   height: 80%;
-  margin-top: 9.5%;
+  top: -25px;
   
 }
 
 div.profile-details {
   left: 80%;
-  position: sticky !important;
+  position: sticky ;
   
   /* border-style: dotted;
   border-width: 5px;
   border-color: teal; */
-  width: 73%;
+  width: 74%;
   height: 100%;
   margin-top: 10%;
   

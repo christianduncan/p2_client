@@ -48,13 +48,12 @@ class Profile extends React.Component {
             return (
                 <div>
                     
-                    
-                    <Container textAlign={'left'} >
                         
-                        <Icon.Group size='huge'>
-                            
-                            <Icon color={'teal'} name='mail'/>
-                        </Icon.Group>
+                        <h1>{this.props.currentUser.name.charAt(0).toUpperCase() + this.props.currentUser.name.slice(1)}'s Watchlist</h1>
+                    
+                    <Container  textAlign={'left'} >
+                        
+                        
                             <Button.Group>
                             <Button color={'facebook'} class="ui facebook button">
                                 <i class="facebook icon"></i>
@@ -67,14 +66,12 @@ class Profile extends React.Component {
                             Twitter
                         </Button>
                         </Button.Group>
-                        
                     </Container>
-                <Container centered text>
+                <Container className='rolly' fluid centered text>
                     
                         
-                        <h1>{this.props.currentUser.name.charAt(0).toUpperCase() + this.props.currentUser.name.slice(1)}'s Watchlist</h1>
                     
-                    <br></br>
+                    
                     <Card.Group className="profile-details" >
                         {this.props.currentUser.animals.map(animal => <AnimalDetail
                             
