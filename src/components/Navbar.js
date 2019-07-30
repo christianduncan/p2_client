@@ -13,7 +13,7 @@ class Navbar extends React.Component {
         return (
             <Grid.Row >
                 <Grid.Column width={16}>
-                    <Menu  id={'nav'} secondary icon className='ui stackable black  menu'  size={'medium'}>
+                    <Menu  id={'nav'} secondary icon className='ui stackable black  menu'  size={'small'}>
                         <Image size={'small'} src={"https://github.com/christianduncan/p2_client/blob/master/public/RescueLogo.png?raw=true"} />
                         <Button.Group icon size={'mini'}>
                             <Button color={'facebook'} class="ui facebook button">
