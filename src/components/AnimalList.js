@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react';
 import Animal from './Animal'
-import SearchBar from '../components/SearchBar'
+
+
 import { Card, Container} from 'semantic-ui-react';
 
 class AnimalList extends Component {
@@ -21,7 +22,7 @@ class AnimalList extends Component {
         const animalLi = this.props.animals.animals || []
         const animalList = animalLi.slice(0).reverse()
         let matched = animalList.filter(animal => {
-            return animal.state.toLowerCase().includes(this.props.searchTerm)
+            return animal.breed.toLowerCase().includes(this.props.searchTerm)
         }
         )
         return (
@@ -45,6 +46,7 @@ class AnimalList extends Component {
                     
                 
                     <Container className='scroll'>
+                        
                     <Card.Group itemsPerRow={4}>
                             {this.props.searchTerm ? this.filterAnimal() : this.renderAnimal()}
                     </Card.Group >

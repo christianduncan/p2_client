@@ -79,7 +79,7 @@ ui.facebook{
 
 
 .ui.image.resize{
-  max-height: 175px;
+  max-height: 150px;
 }
 
 div.animal-card {
@@ -110,7 +110,7 @@ div.animal-details {
   border-color: teal; */
   width: 80%;
   height: 80%;
-  top: 11%;
+  top: 13%;
   overflow-y: auto;
   
   
@@ -125,6 +125,7 @@ div.animal-details {
 #show{
   background-color: #008080;
   color: white;
+
 }
 
 #teal{
