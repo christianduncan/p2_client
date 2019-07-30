@@ -52,7 +52,7 @@ class Profile extends React.Component {
                         <h1>{this.props.currentUser.name.charAt(0).toUpperCase() + this.props.currentUser.name.slice(1)}'s Favorites</h1>
                     
                         <Card.Group id={'favs'}  itemsPerRow={3} >
-                        {this.props.currentUser.animals.map(animal => <ProfileDetail
+                        {this.props.currentUser.animals.slice(0).reverse().map(animal => <ProfileDetail
                             
                             animal={animal}
                             key={animal.id} {...animal}
