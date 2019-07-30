@@ -16,10 +16,10 @@ class ProfileDetail extends Component {
         return (
 
             
-                <Card raised>
+            <Card id={'fav'} circular raised>
 
-                    <Image centered fluid src={this.props.animal.imageURL} alt="" />
-                    <Card.Content>
+                    <Image fluid circular size={'medium'} centered src={this.props.animal.imageURL} alt="" />
+                <Card.Content textAlign='left'>
                         <Card.Header>{this.props.animal.name}</Card.Header>
 
                         <Card.Description>Breed: {this.props.animal.breed}</Card.Description>

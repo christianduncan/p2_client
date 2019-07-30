@@ -115,6 +115,27 @@ div.animal-details {
   
 }
 
+#favs{
+  margin-left: 4%;
+  margin-top: -10%;
+  
+}
+
+#show{
+  background-color: #008080;
+  color: white;
+}
+
+#teal{
+  background-color:  #008080
+}
+
+#fav{
+  
+  transform: scale(0.8); /* Equal to scaleX(0.7) scaleY(0.7) */
+  
+}
+
 div.profile-details {
   left: 80%;
   position: sticky ;
@@ -123,8 +144,8 @@ div.profile-details {
   border-width: 5px;
   border-color: teal; */
   width: 74%;
-  height: 100%;
-  margin-top: 10%;
+  height: 50%;
+  margin-top: 5%;
   
 }
 div.shelter-detail {

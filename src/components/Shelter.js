@@ -7,8 +7,8 @@ class Shelter extends Component {
         const shelter = this.props.shelter
         return (
             
-            <Card className="ui-centered-card" id={shelter.id} onClick={(e) => { this.props.handleClick(e, shelter.id) }}>
-                    <h3><a href={shelter.url}>{shelter.name}</a></h3>
+            <Card  className="ui-centered-card" id={'show'} onClick={(e) => { this.props.handleClick(e, shelter.id) }}>
+                    <h3 ><a href={shelter.url}>{shelter.name}</a></h3>
                     <p>{shelter.address}</p>
                     <p>{shelter.city}, {shelter.state}</p>
                 </Card>

@@ -46,14 +46,12 @@ class Profile extends React.Component {
 
         if (this.props.currentUser) {
             return (
-                <div>
+                <Container>
                     
                         
                         <h1>{this.props.currentUser.name.charAt(0).toUpperCase() + this.props.currentUser.name.slice(1)}'s Favorites</h1>
                     
-                    
-                    
-                        <Card.Group  itemsPerRow={4} >
+                        <Card.Group id={'favs'}  itemsPerRow={3} >
                         {this.props.currentUser.animals.map(animal => <ProfileDetail
                             
                             animal={animal}
@@ -66,7 +64,7 @@ class Profile extends React.Component {
                     </Card.Group>
                     
                 
-                </div>
+                </Container>
             )
         } else {
             return <Loader />
