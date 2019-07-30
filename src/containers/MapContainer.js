@@ -21,8 +21,9 @@ export class MapContainer extends Component {
         const animalLi = this.props.animals.animals || []
         const animalAddress = animalLi.map(animal => animal.address1 + " " + animal.city)
         const aniCoord = animalAddress.map(animalAd => this.getAnimalCoord(animalAd))
-        const noErrors = aniCoord.filter(address => typeof address !== 'undefined')
-        console.log(noErrors)
+        
+        console.log(aniCoord)
+        
     //     aniCoord.map(animalMark => <Marker 
     //         onClick={this.onMarkerClick}
     //         position={{lat: animalMark[0], lng: animalMark[1]}}
@@ -62,7 +63,9 @@ export class MapContainer extends Component {
         Geocode.fromAddress(address).then(
             response => {
                 const { lat, lng } = response.results[0].geometry.location
-                console.log(lat, lng)
+                console.log({lat,lng})
+                return {lat,lng}
+                
             },
             error => {
                 console.error(error)
