@@ -27,7 +27,7 @@ class AnimalDetail extends Component {
                 <Card id={'show'} raised>
                 
                     <Image  centered fluid src={this.props.animal.imageURL} alt="" />
-                <Card.Content>
+                <Card.Content >
                 <Card.Header>{this.props.animal.name}</Card.Header>
                 
                         <Card.Description>Breed: {this.props.animal.breed}</Card.Description>

@@ -103,14 +103,15 @@ div.split-screen {
 }
 
 div.animal-details {
-  left: 80%;
-  position: relative;
+  left: 70%;
+  position: absolute;
   /* border-style: dotted;
   border-width: 5px;
   border-color: teal; */
   width: 80%;
   height: 80%;
-  top: -25px;
+  top: 11%;
+  overflow-y: auto;
   
   
 }
