@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Geocode from "react-geocode";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 export class MapContainer extends Component {
@@ -16,6 +16,18 @@ export class MapContainer extends Component {
             }
         }
     }
+    getAnimalAddress = () => {
+
+        const animalLi = this.props.animals.animals || []
+        const animalAddress = animalLi.map(animal => animal.address1 + " " + animal.city)
+        const aniCoord = animalAddress.map(animalAd => this.getAnimalCoord(animalAd))
+        const noErrors = aniCoord.filter(address => typeof address !== 'undefined')
+        console.log(noErrors)
+    //     aniCoord.map(animalMark => <Marker 
+    //         onClick={this.onMarkerClick}
+    //         position={{lat: animalMark[0], lng: animalMark[1]}}
+    //         name={"Current location"}/>) 
+     }
     
     onMarkerClick(props, marker, e) {
         this.setState({
@@ -29,7 +41,7 @@ export class MapContainer extends Component {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 position => {
-                    console.log(position.coords);
+                    
                     this.setState({
                         center: {
                         lat: position.coords.latitude,
@@ -44,9 +56,26 @@ export class MapContainer extends Component {
         }
     }
 
-        componentDidMount(){
-            this.getGeoLocation()
+    // Get latidude & longitude from address.
+    getAnimalCoord = (address) => {
+        Geocode.setApiKey('AIzaSyAjdftCyeiA4-PwibS1-9JB0h2iUBbNKAc');
+        Geocode.fromAddress(address).then(
+            response => {
+                const { lat, lng } = response.results[0].geometry.location
+                console.log(lat, lng)
+            },
+            error => {
+                console.error(error)
+            }
+        )
+    }
+
+
+    componentDidMount(){
+        this.getGeoLocation()
+        this.props.fetchAnimals()
         }
+
     render() {
         this.getGeoLocation()
         if (!this.props.google) {
@@ -66,14 +95,16 @@ export class MapContainer extends Component {
                     google={this.props.google}
                     center={this.state.center}
                     zoom={14}
+                    onClick={this.getAnimalAddress}
                     
                 >
                     <Marker
                         onClick={this.onMarkerClick}
                         position={pos}
                             
-                        name={"Current location"}
+                        name={this.props.currentUser.name + "'s Location"}
                     />
+                    
                     <InfoWindow
                         marker={this.state.activeMarker}
                         

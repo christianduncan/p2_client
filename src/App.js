@@ -134,7 +134,9 @@ class App extends Component {
           handleFavorited={this.handleFavorited}
           handleSearch={this.handleSearch} searchTerm={this.state.searchTerm}
           fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}  animals={this.props.animals} />} />
-          <Route path="/maps" render={(props) => <MapContainer {...props}/>} />
+          <Route path="/maps" render={(props) => <MapContainer {...props}
+              currentUser={this.state.currentUser} animals={this.props.animals} fetchAnimals={this.props.fetchAnimals}
+          />} />
       </Grid>
       
         </div>
