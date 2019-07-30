@@ -23,7 +23,7 @@ class AnimalDetail extends Component {
 
         return (
             
-            <Container textAlign={'center'}  >
+            <Container textAlign={'center'}>
                 <Card raised>
                 
                     <Image centered fluid src={this.props.animal.imageURL} alt="" />

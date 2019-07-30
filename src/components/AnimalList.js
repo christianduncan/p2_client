@@ -11,7 +11,7 @@ class AnimalList extends Component {
         const animalList = animalLi.slice(0).reverse()
         return (
             
-            animalList.map(animal => <Animal handleFavoriteClick={this.props.handleFavoriteClick} 
+            animalList.map(animal => <Animal handleFavoriteClick={this.props.handleFavoriteClick} handleFavorited={this.props.handleFavorited}
         currentUser={this.props.currentUser} key={animal.id} {...animal} handleClick={this.props.handleClick} />)
         
         )
@@ -29,6 +29,7 @@ class AnimalList extends Component {
             matched.map(animal => <Animal
             key={animal.id}
             handleFavoriteClick={this.props.handleFavoriteClick}
+            handleFavorited={this.props.handleFavorited}
             currentUser={this.props.currentUser}
             handleClick={this.props.handleClick}
             {...animal}

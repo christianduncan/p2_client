@@ -8,6 +8,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#link{
+  color: white;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -108,6 +112,7 @@ div.animal-details {
   height: 80%;
   top: -25px;
   
+  
 }
 
 div.profile-details {
@@ -121,6 +126,16 @@ div.profile-details {
   height: 100%;
   margin-top: 10%;
   
+}
+div.shelter-detail {
+  left: 80%;
+  position: relative;
+  /* border-style: dotted;
+  border-width: 5px;
+  border-color: teal; */
+  width: 80%;
+  height: 80%;
+  top: -25px;
 }
 
 #detailsname {
@@ -172,10 +187,7 @@ div.shelter-card p {
   color: black;
 }
 
-div.shelter-detail {
-  left: 65%;
-  position: absolute;
-}
+
 
 div.shelter-list {
   overflow-y: auto;

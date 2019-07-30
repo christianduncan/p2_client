@@ -22,7 +22,8 @@ class App extends Component {
     currentUser: null,
     animals: [],
     shelters: [],
-    searchTerm: ''
+    searchTerm: '',
+    favorited: false
   }
 
   handleFavoriteClick = (animalID) => {
@@ -45,6 +46,17 @@ class App extends Component {
     this.setState({
       searchTerm: event.target.value.toLowerCase()
     })
+  }
+  
+
+  handleFavorited = (animalID) => {
+
+    if (this.state.currentUser && this.state.currentUser.animals.find(animal => animal.id === animalID)) {
+
+      return true
+    } else {
+      return false
+    }
   }
 
   
@@ -99,6 +111,7 @@ class App extends Component {
               <Route path="/users/:id" render={routerProps => <Profile
                 currentUser={this.state.currentUser}
                 handleFavoriteClick={this.handleFavoriteClick}
+                handleFavorited={this.handleFavorited}
                 handleSearch={this.handleSearch}
                 favorites={this.state.favorites}
                 fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}
@@ -117,6 +130,7 @@ class App extends Component {
 
           <Route path="/animals" render={(props) => <AnimalListContainer{...props} 
           currentUser={this.state.currentUser} handleFavoriteClick={this.handleFavoriteClick}
+          handleFavorited={this.handleFavorited}
           handleSearch={this.handleSearch} searchTerm={this.state.searchTerm}
           fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}  animals={this.props.animals} />} />
           <Route path="/shelters" render={(props) => <ShelterListContainer{...props} fetchShelters={this.props.fetchShelters} fetchShelter={this.props.fetchShelter} shelters={this.props.shelters} />} />

@@ -24,12 +24,9 @@ class ShelterListContainer extends Component {
         console.log('ShelterListContainer: ', this.props)
         return (
             <div>
-                <div className="split-screen">
+                
                     <ShelterList shelters={this.props.shelters} handleClick={this.handleClick} />
-                </div>
-                <div className="split-screen">
-                    <ShelterDetail shelter={this.props.shelters.currentShelter} />
-                </div>
+               
             </div>
         )
     }

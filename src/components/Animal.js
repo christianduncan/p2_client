@@ -5,19 +5,6 @@ import { Card, Button, Icon, Image} from 'semantic-ui-react'
 class Animal extends Component {
 
 
-    state = {
-        favorited: false
-    }
-    handleFavorited = (animalID) => {
-        
-        if (this.props.currentUser && this.props.currentUser.animals.find(animal => animal.id === animalID)) {
-            
-            return true
-        } else {
-            return false
-        }
-    }
-
 
 
     render() {
@@ -35,7 +22,7 @@ class Animal extends Component {
                        this.props.handleFavoriteClick(this.props.id)
                         
                     }}>
-                    <Icon color='red' name={!this.handleFavorited(this.props.id) ? 'heart outline' : 'heart'} />
+                    <Icon color='red' name={!this.props.handleFavorited(this.props.id) ? 'heart outline' : 'heart'} />
                     
                 </Button>
                 

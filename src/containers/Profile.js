@@ -1,7 +1,7 @@
 import React from 'react'
 import { Loader, Grid, Segment, Image} from 'semantic-ui-react'
 import { Container, Card, Button, Icon } from 'semantic-ui-react'
-import AnimalDetail from '../components/AnimalDetail'
+import ProfileDetail from '../components/ProfileDetail'
 
 
 
@@ -49,40 +49,23 @@ class Profile extends React.Component {
                 <div>
                     
                         
-                        <h1>{this.props.currentUser.name.charAt(0).toUpperCase() + this.props.currentUser.name.slice(1)}'s Watchlist</h1>
-                    
-                    <Container  textAlign={'left'} >
-                        
-                        
-                            <Button.Group>
-                            <Button color={'facebook'} class="ui facebook button">
-                                <i class="facebook icon"></i>
-                                Facebook
-                            </Button>
-                        
-                        
-                        <Button color={'twitter'} class="ui twitter button">
-                            <i class="twitter icon"></i>
-                            Twitter
-                        </Button>
-                        </Button.Group>
-                    </Container>
-                <Container className='rolly' fluid centered text>
-                    
-                        
+                        <h1>{this.props.currentUser.name.charAt(0).toUpperCase() + this.props.currentUser.name.slice(1)}'s Favorites</h1>
                     
                     
-                    <Card.Group className="profile-details" >
-                        {this.props.currentUser.animals.map(animal => <AnimalDetail
+                    
+                        <Card.Group  itemsPerRow={4} >
+                        {this.props.currentUser.animals.map(animal => <ProfileDetail
                             
                             animal={animal}
+                            key={animal.id} {...animal}
                             handleClick={this.handleClick}
                             handleFavoriteClick={this.props.handleFavoriteClick}
+                            handleFavorited={this.props.handleFavorited}
                             currentUser={this.props.currentUser}
                         />)}
                     </Card.Group>
                     
-                </Container>
+                
                 </div>
             )
         } else {
