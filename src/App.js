@@ -12,6 +12,7 @@ import LoginForm from './components/LoginForm'
 import SignupForm from './components/SignupForm'
 import AnimalListContainer from './containers/AnimalListContainer'
 import ShelterListContainer from './containers/ShelterListContainer'
+import MapContainer from './containers/MapContainer'
 
 import { fetchAnimals, fetchAnimal } from './actions/animalActions'
 import { fetchShelters, fetchShelter } from './actions/shelterActions'
@@ -133,7 +134,7 @@ class App extends Component {
           handleFavorited={this.handleFavorited}
           handleSearch={this.handleSearch} searchTerm={this.state.searchTerm}
           fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}  animals={this.props.animals} />} />
-          <Route path="/shelters" render={(props) => <ShelterListContainer{...props} fetchShelters={this.props.fetchShelters} fetchShelter={this.props.fetchShelter} shelters={this.props.shelters} />} />
+          <Route path="/maps" render={(props) => <MapContainer {...props}/>} />
       </Grid>
       
         </div>

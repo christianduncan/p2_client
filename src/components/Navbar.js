@@ -51,8 +51,8 @@ class Navbar extends React.Component {
                                         Animals!
                                     </Link>
 
-                                    <Link className="item"to="/shelters">
-                                    Local Shelters 
+                                    <Link className="item"to="/maps">
+                                        Maps 
                                     </Link>
                                     
 
