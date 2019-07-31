@@ -29,7 +29,13 @@ export class MapContainer extends Component {
          <Marker 
             onClick={this.onMarkerClick}
             position={{lat: animalMark.latitude, lng: animalMark.longitude}}
-            name={animalMark.name + "'s location"}/>
+            name={animalMark.name + "'s location"}
+            address={animalMark.address1 + " , " + animalMark.city + " , " + animalMark.state}
+            image={animalMark.imageURL}
+            phone={animalMark.phone +","+ animalMark.email} 
+            key={animalMark.id}
+            />
+            
        )
        console.log(markery)
        return markery
@@ -78,13 +84,11 @@ export class MapContainer extends Component {
         
         const pos = { lat: this.state.center.lat, lng: this.state.center.lng }
         
-        const animalLi = this.props.animals.animals[0] || []
-        
         
         
         return (
             <div>
-                <Map
+                <Map 
                     style={{
                         minWwidth: "200px",
                         minHeight: "200px"
@@ -99,7 +103,7 @@ export class MapContainer extends Component {
                     <Marker
                         onClick={this.onMarkerClick}
                         position={pos}
-                            
+                        image={this.props.currentUser.avatar_url}   
                         name={this.props.currentUser.name + "'s Location"}
                     />
                     {this.makeAnimalMarkers()}
@@ -110,7 +114,10 @@ export class MapContainer extends Component {
                         visible={this.state.showingInfoWindow}
                     >
                         <div>
+                            <img id='marker' src={this.state.selectedPlace.image} alt=''/>
                             <h1>{this.state.selectedPlace.name}</h1>
+                            <p>{this.state.selectedPlace.address}</p>
+                            <p>{this.state.selectedPlace.phone}</p>
                         </div>
                     </InfoWindow>
                 </Map>

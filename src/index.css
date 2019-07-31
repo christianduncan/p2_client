@@ -24,6 +24,12 @@ img {
   border-radius: 5px 5px 0 0;
 }
 
+#marker{
+  width: 250px !important;
+  height: 10% !important;
+  
+}
+
 .ui.container.scroll{
   overflow-y: auto;
   position: absolute;
