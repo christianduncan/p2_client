@@ -18,11 +18,14 @@ export class MapContainer extends Component {
     }
     getAnimalAddress = () => {
 
+        const size = 5
         const animalLi = this.props.animals.animals || []
-        const animalAddress = animalLi.map(animal => animal.address1 + " " + animal.city)
+        const animalAddress = animalLi.slice(0,size).map(animal => animal.address1 + " " + animal.city)
+        const ad = animalAddress[0]
+        const coord = this.getAnimalCoord(ad)
         const aniCoord = animalAddress.map(animalAd => this.getAnimalCoord(animalAd))
+     
         
-        console.log(aniCoord)
         
     //     aniCoord.map(animalMark => <Marker 
     //         onClick={this.onMarkerClick}
@@ -63,14 +66,46 @@ export class MapContainer extends Component {
         Geocode.fromAddress(address).then(
             response => {
                 const { lat, lng } = response.results[0].geometry.location
-                console.log({lat,lng})
-                return {lat,lng}
+                
+                const b = {lat: lat, lng: lng}
+                
+                console.log(b)
+                return (
+                    b
+                    )
                 
             },
             error => {
                 console.error(error)
             }
         )
+    }
+
+
+    // Get latidude & longitude from address.
+    getAnimalCoords = (addresses) => {
+        Geocode.setApiKey('AIzaSyAjdftCyeiA4-PwibS1-9JB0h2iUBbNKAc');
+        const coords = addresses.map(address => 
+        Geocode.fromAddress(address).then(
+            response => {
+                const latitude = response.results[0].geometry.location.lat
+                const longitude = response.results[0].geometry.location.lng
+                const coord = {lat: latitude, lng: longitude}
+                
+                
+                
+                
+               
+
+            },
+            error => {
+                console.error(error)
+            }
+            )
+            )
+            console.log(coords)
+        return coords    
+            
     }
 
 
@@ -87,6 +122,10 @@ export class MapContainer extends Component {
         
         
         const pos = { lat: this.state.center.lat, lng: this.state.center.lng }
+        const size = 5
+        const animalLi = this.props.animals.animals || []
+        const animalAddress = animalLi.map(animal => animal.address1 + " " + animal.city)
+        
         
         return (
             <div>
@@ -98,7 +137,7 @@ export class MapContainer extends Component {
                     google={this.props.google}
                     center={this.state.center}
                     zoom={14}
-                    onClick={this.getAnimalAddress}
+                    onClick={this.getAnimalCoords(animalAddress)}
                     
                 >
                     <Marker
