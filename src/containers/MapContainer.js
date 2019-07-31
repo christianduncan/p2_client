@@ -16,21 +16,23 @@ export class MapContainer extends Component {
             }
         }
     }
-    getAnimalAddress = () => {
+    makeAnimalMarkers = () => {
 
-        const size = 5
+        
         const animalLi = this.props.animals.animals || []
-        const animalAddress = animalLi.slice(0,size).map(animal => animal.address1 + " " + animal.city)
-        const ad = animalAddress[0]
-        const coord = this.getAnimalCoord(ad)
-        const aniCoord = animalAddress.map(animalAd => this.getAnimalCoord(animalAd))
+        
      
         
         
-    //     aniCoord.map(animalMark => <Marker 
-    //         onClick={this.onMarkerClick}
-    //         position={{lat: animalMark[0], lng: animalMark[1]}}
-    //         name={"Current location"}/>) 
+       const markery = animalLi.map(animalMark => 
+            
+         <Marker 
+            onClick={this.onMarkerClick}
+            position={{lat: animalMark.latitude, lng: animalMark.longitude}}
+            name={animalMark.name + "'s location"}/>
+       )
+       console.log(markery)
+       return markery
      }
     
     onMarkerClick(props, marker, e) {
@@ -60,61 +62,14 @@ export class MapContainer extends Component {
         }
     }
 
-    // Get latidude & longitude from address.
-    getAnimalCoord = (address) => {
-        Geocode.setApiKey('AIzaSyAjdftCyeiA4-PwibS1-9JB0h2iUBbNKAc');
-        Geocode.fromAddress(address).then(
-            response => {
-                const { lat, lng } = response.results[0].geometry.location
-                
-                const b = {lat: lat, lng: lng}
-                
-                console.log(b)
-                return (
-                    b
-                    )
-                
-            },
-            error => {
-                console.error(error)
-            }
-        )
-    }
-
-
-    // Get latidude & longitude from address.
-    getAnimalCoords = (addresses) => {
-        Geocode.setApiKey('AIzaSyAjdftCyeiA4-PwibS1-9JB0h2iUBbNKAc');
-        const coords = addresses.map(address => 
-        Geocode.fromAddress(address).then(
-            response => {
-                const latitude = response.results[0].geometry.location.lat
-                const longitude = response.results[0].geometry.location.lng
-                const coord = {lat: latitude, lng: longitude}
-                
-                
-                
-                
-               
-
-            },
-            error => {
-                console.error(error)
-            }
-            )
-            )
-            console.log(coords)
-        return coords    
-            
-    }
-
-
     componentDidMount(){
         this.getGeoLocation()
         this.props.fetchAnimals()
+        
         }
 
     render() {
+    
         this.getGeoLocation()
         if (!this.props.google) {
             return <div>Loading...</div>;
@@ -122,9 +77,9 @@ export class MapContainer extends Component {
         
         
         const pos = { lat: this.state.center.lat, lng: this.state.center.lng }
-        const size = 5
-        const animalLi = this.props.animals.animals || []
-        const animalAddress = animalLi.map(animal => animal.address1 + " " + animal.city)
+        
+        const animalLi = this.props.animals.animals[0] || []
+        
         
         
         return (
@@ -137,7 +92,8 @@ export class MapContainer extends Component {
                     google={this.props.google}
                     center={this.state.center}
                     zoom={14}
-                    onClick={this.getAnimalCoords(animalAddress)}
+                    onClick={this.makeAnimalMarkers()}
+                    
                     
                 >
                     <Marker
@@ -146,6 +102,7 @@ export class MapContainer extends Component {
                             
                         name={this.props.currentUser.name + "'s Location"}
                     />
+                    {this.makeAnimalMarkers()}
                     
                     <InfoWindow
                         marker={this.state.activeMarker}
