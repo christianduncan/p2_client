@@ -109,15 +109,6 @@ class App extends Component {
         <Navbar handleSearch={this.handleSearch} currentUser={this.state.currentUser} logOut={this.logOut} />
         <Grid.Row centered>
           <Switch>
-              <Route path="/users/:id" render={routerProps => <Profile
-                currentUser={this.state.currentUser}
-                handleFavoriteClick={this.handleFavoriteClick}
-                handleFavorited={this.handleFavorited}
-                handleSearch={this.handleSearch}
-                favorites={this.state.favorites}
-                fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}
-                animals={this.props.animals}
-                {...routerProps} />} />
             
             <Route exact path="/login" render={(routerProps) => {
               return <LoginForm setCurrentUser={this.setCurrentUser} {...routerProps} />
@@ -127,6 +118,15 @@ class App extends Component {
             }} />
           </Switch>
         </Grid.Row>
+              <Route path="/users/:id" render={routerProps => <Profile
+                currentUser={this.state.currentUser}
+                handleFavoriteClick={this.handleFavoriteClick}
+                handleFavorited={this.handleFavorited}
+                handleSearch={this.handleSearch}
+                favorites={this.state.favorites}
+                fetchAnimals={this.props.fetchAnimals} fetchAnimal={this.props.fetchAnimal}
+                animals={this.props.animals}
+                {...routerProps} />} />
         
 
           <Route path="/animals" render={(props) => <AnimalListContainer{...props} 
