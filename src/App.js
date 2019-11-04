@@ -11,18 +11,17 @@ import Navbar from './components/Navbar'
 import LoginForm from './components/LoginForm'
 import SignupForm from './components/SignupForm'
 import AnimalListContainer from './containers/AnimalListContainer'
-import ShelterListContainer from './containers/ShelterListContainer'
+
 import MapContainer from './containers/MapContainer'
 
 import { fetchAnimals, fetchAnimal } from './actions/animalActions'
-import { fetchShelters, fetchShelter } from './actions/shelterActions'
+
 
 
 class App extends Component {
   state = {
     currentUser: null,
     animals: [],
-    shelters: [],
     searchTerm: '',
     favorited: false
   }
@@ -149,7 +148,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     animals: state.animals,
-    shelters: state.shelters,
+    
   }
 }
 
@@ -160,15 +159,10 @@ const mapDispatchToProps = dispatch => {
     },
     fetchAnimal: (animals, id) => {
       dispatch(fetchAnimal(animals, id))
-    },
-    fetchShelters: () => {
-      dispatch(fetchShelters())
-    },
-    fetchShelter: (shelters, id) => {
-      dispatch(fetchShelter(shelters, id))
     }
     
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+//add commit
